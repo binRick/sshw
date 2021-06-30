@@ -1,5 +1,7 @@
 module github.com/yinheli/sshw
 
+go 1.16
+
 require (
 	github.com/BurntSushi/toml v0.3.1 // indirect
 	github.com/alecthomas/units v0.0.0-20151022065526-2efee857e7cf // indirect

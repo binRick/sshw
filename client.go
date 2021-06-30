@@ -134,7 +134,9 @@ func (c *defaultClient) Login() {
 	jNodes := c.node.Jump
 
 	var client *ssh.Client
-
+pp.Println(
+jNode,
+)
 	if len(jNodes) > 0 {
 		jNode := jNodes[0]
 		jc := genSSHConfig(jNode)

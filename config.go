@@ -87,13 +87,13 @@ func LoadConfig() error {
 	return nil
 }
 
-func LoadSshConfig() error {
-	u, err := user.Current()
+func LoadSshConfig(cfg_path string) error {
+	_, err := user.Current()
 	if err != nil {
 		l.Error(err)
 		return nil
 	}
-	f, _ := os.Open(path.Join(u.HomeDir, ".ssh/config"))
+	f, _ := os.Open(cfg_path)
 	cfg, _ := ssh_config.Decode(f)
 	var nc []*Node
 	for _, host := range cfg.Hosts {

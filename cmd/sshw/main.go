@@ -17,7 +17,8 @@ var (
 	Build = "devel"
 	V     = flag.Bool("version", false, "show version")
 	H     = flag.Bool("help", false, "show help")
-	S     = flag.Bool("s", false, "use local ssh config '~/.ssh/config'")
+	S     = flag.Bool("s", false, "Use Local SSH Config")
+	C     = flag.String("c", "~/.ssh/config", "SSH Config Path")
 
 	log = sshw.GetLogger()
 
@@ -59,7 +60,7 @@ func main() {
 		return
 	}
 	if *S {
-		err := sshw.LoadSshConfig()
+		err := sshw.LoadSshConfig(*C)
 		if err != nil {
 			log.Error("load ssh config error", err)
 			os.Exit(1)
